@@ -36,6 +36,7 @@ class RTCController extends GetxController {
       await QB.webrtc.init();
     } on PlatformException catch (e) {
       // Some error occurred, look at the exception message for more details
+      print("err kode 1 ... init");
     }
     subscribeCall();
     subscribePeerConnection();
@@ -81,6 +82,8 @@ class RTCController extends GetxController {
       }, onErrorMethod: (error) {});
     } on PlatformException catch (e) {
       Get.defaultDialog(title: "Eror", middleText: e.toString());
+      
+      print("err kode 2 ... subscribeCall");
     }
   }
 
@@ -90,6 +93,8 @@ class RTCController extends GetxController {
       sessionId = session!.id;
     } on PlatformException catch (e) {
       Get.defaultDialog(title: "Eror", middleText: e.toString());
+      
+      print("err kode 3 ... callWebRTC");
     }
   }
 
@@ -99,6 +104,8 @@ class RTCController extends GetxController {
       String? receivedSessionId = session!.id;
     } on PlatformException catch (e) {
       Get.defaultDialog(title: "Eror", middleText: e.toString());
+      
+      print("err kode 4 ... acceptWebRTC");
     }
   }
 
@@ -108,6 +115,8 @@ class RTCController extends GetxController {
       String? id = session!.id;
     } on PlatformException catch (e) {
       Get.defaultDialog(title: "Eror", middleText: e.toString());
+      
+      print("err kode 5 ... rejectWebRTC");
     }
   }
 
@@ -117,6 +126,8 @@ class RTCController extends GetxController {
       String? id = session!.id;
     } on PlatformException catch (e) {
       Get.defaultDialog(title: "Eror", middleText: e.toString());
+      
+      print("err kode 6... hangUpWebRTC");
     }
   }
 
@@ -126,6 +137,8 @@ class RTCController extends GetxController {
       await QB.rtcConfig.setDialingTimeInterval(15);
     } on PlatformException catch (e) {
       Get.defaultDialog(title: "Eror", middleText: e.toString());
+      
+      print("err kode 7... setRTCConfigs");
     }
   }
 
@@ -135,6 +148,7 @@ class RTCController extends GetxController {
       int? dialingInterval = await QB.rtcConfig.getDialingTimeInterval();
     } on PlatformException catch (e) {
       Get.defaultDialog(title: "Eror", middleText: e.toString());
+      print("err kode 8... getRTCConfigs");
     }
   }
 
@@ -144,6 +158,8 @@ class RTCController extends GetxController {
       sessionId = null;
     } on PlatformException catch (e) {
       Get.defaultDialog(title: "Eror", middleText: e.toString());
+      
+      print("err kode 9... releaseWebRTC");
     }
   }
 
@@ -164,6 +180,8 @@ class RTCController extends GetxController {
       sessionId = session!.id;
     } on PlatformException catch (e) {
       Get.defaultDialog(title: "Eror", middleText: e.toString());
+      
+      print("err kode 10... getSessionWebRTC");
     }
   }
 
